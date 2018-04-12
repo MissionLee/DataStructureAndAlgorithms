@@ -93,3 +93,14 @@ public class Tree {
 16
 99
 ```
+
+## Analysis of TreeMap SourceCode/ 分析一下TreeMap的源码
+
+```note
+* A Red-Black tree based {@link NavigableMap} implementation.
+ * The map is sorted according to the {@linkplain Comparable natural
+ * ordering} of its keys, or by a {@link Comparator} provided at map
+ * creation time, depending on which constructor is used.
+```
+
+- TreeMap使用red-black 红黑树来实现。以key的自然顺序进行排序（或者自定义Comparator，在创建的时候传入构造）

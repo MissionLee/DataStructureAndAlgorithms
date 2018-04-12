@@ -15,15 +15,12 @@ public class Tree {
     TreeMap<Integer,String> tm = new TreeMap<Integer, String>();
 
     @Test
-    public void test(){
+    public void testWhetherTheIteratorIsSorted(){
         ts.add(1);
         ts.add(2);
         ts.add(3);
         ts.add(10);
         ts.add(5);
-
-
-
         Iterator x=ts.iterator();
         while (x.hasNext()){
             System.out.println(x.next());
