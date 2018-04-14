@@ -1,0 +1,22 @@
+{
+    "run": [
+        {
+            "name": "algorithms",
+            "projectName": "algorithms",
+            "workingDirectory": "/home/missingli/IdeaProjects/algorithms",
+            "args": [],
+            "vmargs": [],
+            "preLaunchTask": ""
+        }
+    ],
+    "debug": [
+        {
+            "name": "algorithms",
+            "projectName": "algorithms",
+            "workingDirectory": "/home/missingli/IdeaProjects/algorithms",
+            "args": [],
+            "vmargs": [],
+            "preLaunchTask": ""
+        }
+    ]
+}

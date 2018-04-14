@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch)-BinaryTree.BinarySearchTree",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.lms.algorithms.tree.BinaryTree.BinarySearchTree",
+            "projectName": "algorithms",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-BinaryTree.BinarySearchTreeAVL",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.lms.algorithms.tree.BinaryTree.BinarySearchTreeAVL",
+            "projectName": "algorithms",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-HelloAlgorithms<algorithms>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.lms.algorithms.HelloAlgorithms",
+            "projectName": "algorithms",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Attach)",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 0
+        }
+    ]
+}
