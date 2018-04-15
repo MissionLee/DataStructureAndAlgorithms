@@ -178,9 +178,46 @@ public class BinarySearchTreeAVL<AnyType extends Comparable<? super AnyType>> {
             }
         }
     }
+    public void printTree(){
+        printTree(root);
+    }
+    public void printTree(AvlNode<AnyType> t){
+        // recursive
+        if(t!=null){
+            printTree(t.left);
+            System.out.println(t.element);
+            printTree(t.right);
+        }
+    }
 
+    public void remove(AnyType x){
+        remove(x,root);
+    }
+    private AvlNode<AnyType> remove(AnyType x,AvlNode<AnyType> t){
+        if(t==null){
+            return t;
+        }
+        int compareReuslt = x.compareTo(t.element);
+        if(compareReuslt <0){
+            t.left=remove(x,t.left);
+        }else if(compareReuslt>0){
+            t.right=remove(x,t.right);
+        }else if(t.left!=null&&t.right!=null){
+            t.element=findMin(t.right).element;
+            t.right=remove(t.element,t.right);
+        }else{
+            t=(t.left!=null)?t.left:t.right;
 
+        }
+        return balance(t);
+    }
 
+    private AvlNode<AnyType> findMin(AvlNode<AnyType> t) {
+        while (t.left != null) {
+            t = t.left;
+        }
+        return t;
+    }
     @Test
     public void TestInsert() {
         BinarySearchTreeAVL binarySearchTreeAVL = new BinarySearchTreeAVL<Integer>();
@@ -197,9 +234,10 @@ public class BinarySearchTreeAVL<AnyType extends Comparable<? super AnyType>> {
         binarySearchTreeAVL.insert(8234);
         binarySearchTreeAVL.insert(0);
 
-        System.out.println(binarySearchTreeAVL.root.right.depu);
-        System.out.println(binarySearchTreeAVL.root.height);
+//        System.out.println(binarySearchTreeAVL.root.right.depu);
+//        System.out.println(binarySearchTreeAVL.root.height);
 //        binarySearchTreeAVL.printTreeInorderTraversal();
+        binarySearchTreeAVL.printTree();
     }
     @Test
     public void TestHeight(){
