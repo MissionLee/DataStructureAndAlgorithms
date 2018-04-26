@@ -105,7 +105,7 @@ public class Sort {
      *                  然后从最底层，想上对最小的子数组进行递归 的 merge
      *   加入由 1，2，3，4 四个元素，相当于 1 ，2 并归， 3，4并归。最后 1，2，3，4并归
      **/
-    private void sortByMerge(int[] arr,int s,int m,int t){
+    private void sortByMerge(int[] arr,int s,int m,int t){// 我个人认为 sortByMerge2 方法更好一些
         /**
          * 首先我们约定： 基数个元素的时候， 如 1，2，3，4，5  分为 1，2，3 一组，4，5一组
          * 
@@ -128,6 +128,28 @@ public class Sort {
         }else{// t-s = 1 说明现在处理的内容 只有两个元素，那么merge这两个元素
             merge(arr,s,m,t);
         }
+    }
+    public int[] sortByMerge2(int[] arr){
+        /**
+         * 因为我们在最细粒度 是 2个元素进行 merge，所以有一种更炫酷的merge循环思路
+         * 
+         *  从头开始 两两分组，然后 四四分组。。。
+         **/
+        int length =arr.length;
+        for (int i = 2; i/2 < length; i*=2) {// i=2,4,8,16
+            System.out.println("i:"+i);
+            for (int j = 0; j < length; j+=i) {
+                int s=j;
+                int m=(j+i+j)/2;
+                int t=(j+i)-1;
+                if(t>=length){
+                    t=length-1;
+                }
+                //System.out.println("s:"+s+"|m:"+m+"|t:"+t);
+                merge(arr,s,m,t);
+            }
+        }
+        return arr;
     }
     private int getMergeMiddle(int s, int t){
         int x =0;
@@ -155,6 +177,7 @@ public class Sort {
      *  test  arr[2,3,1]
      */
     private void merge(int[] arr,int s,int m,int t){
+        if(s>m||m>t||s>t) return;
         int[] tmp = new int[t-s+1];// 存放排序好的内容的数组
         int st=s;
         int md=m;
@@ -236,5 +259,13 @@ public class Sort {
         System.out.println(x);
         int y = getMergeMiddle(2,4);
         System.out.println(y);
+    }
+    @Test
+    public void testMerge2(){
+        int[] arr = getRandomIntArray(10);
+        printIntArray(arr);
+        System.out.println("----------------");
+        arr=sortByMerge2(arr);
+        printIntArray(arr);
     }
 }
