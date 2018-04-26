@@ -6,6 +6,12 @@ Learn about:
 - Spark-core/Spark-SQL
 - SQL
 
+>20180425
+
+添加一些常见的小算法题目
+
+com.lms.simple
+
 >20180415
 
 according to the book Data Structures and Algorithm Analysis in Java
