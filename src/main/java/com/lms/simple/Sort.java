@@ -200,7 +200,9 @@ public class Sort {
         }
         System.arraycopy(tmp,0,arr,s,tmp.length);
     }
-
+    public void sortByQuick(int[] arr){
+        // todo: quick sort
+    }
     @Test
     public void testExchange(){
         int[] a = new int[3];
