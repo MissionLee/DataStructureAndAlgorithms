@@ -62,13 +62,23 @@ public class Sort {
     }
     public int[] sortByBubble(int[] arr){
         for (int i = 0; i < arr.length-1; i++) {
-            for (int j = 0; j < arr.length-1; j++) {
+            for (int j = 0; j < arr.length-1-i; j++) {
                 if(arr[j]>arr[j+1]){
                     exchange(arr,j,j+1);
                 }
             }
         }
         return arr;
+
+//         3-2-1-0
+//         2-3-1-0     i=1
+//       tmp=1 -1  2-3-3-0
+//             -2  2-2-3-0
+//             out 1-2-3-0
+//       tmp 0  -1 1-2-3-3
+//              -2 1-2-2-3
+//              -3 1-1-2-3
+//              out 0-1-2-3
     }
     public int[] sortByInsert(int[] arr){
         // 比较麻烦的就是 弄清楚 +1 关系 -- 关系什么的
@@ -98,6 +108,20 @@ public class Sort {
         sortByMerge(arr,0,m,arr.length-1);
         return arr  ;
     }
+//    1-2-3-4-5-6-7
+//    1-2-3-4   5-6-7
+//    1-2 3-4  5-6-7
+//    1-2-3-4 5-6-7
+//    1-2-3-4 5-6 7
+//    1-2-3-4 5-6-7
+//    1-2-3-4-5-6-7
+//
+//    1-2-3-4-5-6-7
+//
+//    1-2 3-4 5-6 7
+//
+//    1-2-3-4 5-6-7
+//    1-2-3-4-5-6-7
     /**
      *  我的思路 需要一个 merge 函数
      *   merge： 给定一个arr 能够对 这个 arr的 一段 进行 并归排序
@@ -129,6 +153,9 @@ public class Sort {
             merge(arr,s,m,t);
         }
     }
+//    1-2-3-4-5
+//    1-2 3-4 5
+//    1-2-3-4 5
     public int[] sortByMerge2(int[] arr){
         /**
          * 因为我们在最细粒度 是 2个元素进行 merge，所以有一种更炫酷的merge循环思路
@@ -137,7 +164,7 @@ public class Sort {
          **/
         int length =arr.length;
         for (int i = 2; i/2 < length; i*=2) {// i=2,4,8,16
-            System.out.println("i:"+i);
+            System.out.println("------i:"+i);
             for (int j = 0; j < length; j+=i) {
                 int s=j;
                 int m=(j+i+j)/2;
@@ -148,6 +175,7 @@ public class Sort {
                 //System.out.println("s:"+s+"|m:"+m+"|t:"+t);
                 merge(arr,s,m,t);
             }
+            printIntArray(arr);
         }
         return arr;
     }
@@ -176,6 +204,8 @@ public class Sort {
      * 　*
      *  test  arr[2,3,1]
      */
+//    1-2-0-3
+//    0-2-1-3
     private void merge(int[] arr,int s,int m,int t){
         if(s>m||m>t||s>t) return;
         int[] tmp = new int[t-s+1];// 存放排序好的内容的数组
@@ -208,6 +238,12 @@ public class Sort {
         int[] a = new int[3];
         exchange(a,4,2);
     }
+//     1-3-5
+//     2-4-5
+//    new 0-0-0-0-0-0
+//        1 2 3 4
+
+
     @Test
     public void testSelect(){
         int[] arr = getRandomIntArray(10);
@@ -264,10 +300,36 @@ public class Sort {
     }
     @Test
     public void testMerge2(){
-        int[] arr = getRandomIntArray(10);
+        int[] arr = getRandomIntArray(16);
         printIntArray(arr);
         System.out.println("----------------");
         arr=sortByMerge2(arr);
         printIntArray(arr);
+    }
+
+    public int[] myMerge(int[] arr,int[] b){
+        int[] tmp= new int[arr.length+b.length];
+        int al=0;
+        int bl=0;
+        for (int i = 0; i < tmp.length; i++) {
+            if(al< arr.length&&bl<b.length){
+                tmp[i]=(arr[al]<b[bl]?arr[al++]:b[bl++]);
+            }else if(al<arr.length){
+                tmp[i]=arr[al++];
+            }else{
+                tmp[i]=b[bl++];
+            }
+
+        }
+
+
+        return tmp;
+    }
+    @Test
+    public void testMyMerge(){
+        int[] a = {1,3,5,7,9};
+        int[] b = {2,4,5};
+        int[] c= myMerge(a,b);
+        printIntArray(c);
     }
 }
