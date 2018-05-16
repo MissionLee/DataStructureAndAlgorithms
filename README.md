@@ -6,6 +6,17 @@ Learn about:
 - Spark-core/Spark-SQL
 - SQL
 
+>20180516
+
+冒泡/插入/归并/快速 排序的实现（部分算法提供递归与非递归两种形式） 
+  - com.lms.simple.Sort   [冒泡/插入/归并]
+  - com.lms.simple.QuickSort [快速]
+  - com.lms.simple.util.ArrayUtil [提供一些实用的基础操作]
+
+数据集合的操作-目前更新 取交集
+  - com.lms.algorithms.mathematicset.SetOperation [以较大数据量为考虑基础，所以有一些在大数据量下提高效率的操作，小数据量反而可能拖累效率]
+
+
 >20180425
 
 添加一些常见的小算法题目
