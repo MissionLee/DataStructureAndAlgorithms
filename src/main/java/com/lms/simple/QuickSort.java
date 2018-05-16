@@ -23,11 +23,11 @@ public class QuickSort {
      * 1.
      **/
     public int[] sort(int[] arr, int i, int j) {
-        System.out.println("sort-" + i + "_" + j);
-        ArrayUtil.printIntArray(arr);
-        System.out.println("==========");
+        //System.out.println("sort-" + i + "_" + j);
+        //ArrayUtil.printIntArray(arr);
+        //System.out.println("==========");
         int referenceValue = arr[i];
-        System.out.println("referenceValue:" + i + ":" + referenceValue);
+        //System.out.println("referenceValue:" + i + ":" + referenceValue);
         int left = i + 1;
         int right = j;
         if (left == right) {
@@ -36,7 +36,7 @@ public class QuickSort {
         }
         // outer loop / right loop
         for (; right > left; right--) {// 1. start left-- find first number less than r-v
-            System.out.println("right:" + right);
+            //System.out.println("right:" + right);
             // deal with the situation that right meet with left
             // we should do it right after right --
 
@@ -45,7 +45,7 @@ public class QuickSort {
                 System.out.println("we find that:" + right + ":" + arr[right] + "<" + referenceValue);
                 // inner loop / left loop
                 for (; left < right; left++) { // 3. start left++ find first number larger than r-v
-                    System.out.println("left:" + left);
+                    //System.out.println("left:" + left);
                     if (arr[left] > referenceValue) {
 
                         ArrayUtil.exchangeIntArray(arr, left, right); // now we find two numbers , so we need to exchange them
@@ -56,7 +56,7 @@ public class QuickSort {
                 // we should pull the plus back
             }
             if (right - 1 == left) { //
-                System.out.println("right - 1 = left");
+                //System.out.println("right - 1 = left");
                 if (arr[right] < referenceValue)
                     ArrayUtil.exchangeIntArray(arr, i, right);
                 sort(arr, i, left);

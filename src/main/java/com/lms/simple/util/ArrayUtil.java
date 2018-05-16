@@ -1,5 +1,6 @@
 package com.lms.simple.util;
 
+import com.lms.simple.QuickSort;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -38,7 +39,35 @@ public class ArrayUtil<T> {
         }
 
     }
-
+    public static int[] distinct(int[] arr){
+        int[] tmp = new int[arr.length];
+        int len=0;
+        QuickSort qs = new QuickSort();
+        arr = qs.sort(arr);
+        tmp[0]=arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            //System.out.println("len:"+len);
+            if(tmp[len]==arr[i]){
+                continue;
+            }else{
+                tmp[++len]=arr[i];
+            }
+        }
+        int[] result = new int[++len];
+        System.arraycopy(tmp,0,result,0,len);
+        //System.out.println("-=-=-=-=-=-=-=-");
+        //printIntArray(result);
+        return result;
+    }
+    @Test
+    public void testDistinct(){
+        int[] arr = new int[]{1,5,5};
+        printIntArray(arr);
+        System.out.println("===================");
+        arr = distinct(arr);
+        System.out.println("======================");
+        printIntArray(arr);
+    }
     public static int getSum(int[] arr){
         int sum = 0;
         for (int x:arr
