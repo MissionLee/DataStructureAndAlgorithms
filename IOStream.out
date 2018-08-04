@@ -1,0 +1,23 @@
+1: package com.lms.basic.io.stream;
+2: 
+3: import java.io.BufferedReader;
+4: import java.io.FileNotFoundException;
+5: import java.io.FileReader;
+6: import java.io.IOException;
+7: 
+8: /**
+9:  * @Author MissionLee
+10:  * @Description
+11:  * @Date Created in 16:59 2018/7/26
+12:  **/
+13: public class BufferedInputFile {
+14:     public static String read(String filename) throws IOException {
+15:         BufferedReader in = new BufferedReader(new FileReader(filename));
+16:         String s;
+17:         StringBuilder sb = new StringBuilder();
+18:         while((s = in.readLine())!=null)
+19:             sb.append(s + "\n");
+20:         in.close();
+21:         return sb.toString();
+22:     }
+23: }
