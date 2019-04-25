@@ -120,6 +120,7 @@ public class LearnLock implements Lock,java.io.Serializable {
 
             Thread thread = new RunHellow(i);
             thread.start();
+            System.out.println("main:"+i);
         }
     }
 }
