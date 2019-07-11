@@ -1,4 +1,4 @@
-package com.lms.learn.locks;
+package com.lms.learn.juc;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
