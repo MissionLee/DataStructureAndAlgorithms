@@ -1,0 +1,4 @@
+singleServerConfig:
+  address: "redis://10.1.24.73"
+  database: 15
+  password: Ro998otPass
