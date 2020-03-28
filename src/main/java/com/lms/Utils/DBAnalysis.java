@@ -16,7 +16,7 @@ import java.util.*;
 public class DBAnalysis {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String USER = "root";
-    private static final String PASS = "bicon#123";
+    private static final String PASS = "Ro998otPass&";
     private String database;
 
     public DBAnalysis(String database) throws SQLException, IOException {
@@ -217,7 +217,8 @@ public class DBAnalysis {
     }
 
     public static void main(String[] args) throws SQLException, IOException {
-        DBAnalysis dbAnalysis = new DBAnalysis("jdbc:mysql://10.1.24.214:3306/db_clinic?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true");
+        String DB_RUL_BLOG = "jdbc:mysql://10.1.24.73:3306/cloud_clinic_dev_v1_7?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true";
+        DBAnalysis dbAnalysis = new DBAnalysis(DB_RUL_BLOG);
     }
 
 
